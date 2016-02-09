@@ -9,6 +9,8 @@
       <th>In Q/A</th>
       <th>Q/A passed</th>
       <th>Accepted</th>
+      <th>Completed Percentage</th>
+      <th>InCompleted Percentage</th>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +21,9 @@
         <td>{{member.point_stats.doing}}</td>
         <td>{{member.point_stats.in_qa}}</td>
         <td>{{member.point_stats.qa_passed}}</td>
-         <td>{{member.point_stats.accepted}}</td>
+        <td>{{member.point_stats.accepted}}</td>
+        <td>{{member.completed_percentage}}</td>
+        <td>{{member.incompleted_percentage}}</td>
       </tr>
     {{/each}}
   </tbody>
