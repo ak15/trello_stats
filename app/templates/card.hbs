@@ -1,6 +1,8 @@
 <h1>Cards</h1>
 {{#each model as |card|}}
+  <div>{{card.name}}</div>
   {{#each card.cardMembers as |cardMember|}}
-    <div>{{cardMember.individualsPoint}}</div>
+    <div>{{cardMember.member.fullName}}, Points : {{cardMember.individualsPoint}}</div>
   {{/each}}
+  <hr>
 {{/each}}

@@ -12,5 +12,6 @@ export default DS.Model.extend({
   incompletePercentage: Ember.computed('completedPercentage', function() {
     return (100 - this.get('completedPercentage'))
   }),
-  cardMembers: DS.hasMany('cardMembers')
+  cardMembers: DS.hasMany('cardMembers'),
+  cards: DS.hasMany('cards')
 });
