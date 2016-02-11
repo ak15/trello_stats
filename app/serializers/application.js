@@ -1,3 +1,5 @@
-import { ActiveModelSerializer } from 'active-model-adapter';
-
-export default ActiveModelSerializer.extend();
+export default DS.JSONAPISerializer.extend({
+  keyForAttribute: function(attr) {
+    return Ember.String.underscore(attr);
+  }
+});

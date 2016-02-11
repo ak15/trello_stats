@@ -16,14 +16,14 @@
   <tbody>
     {{#each model as |member|}}
       <tr>
-        <td>{{member.full_name}}</td>
-        <td>{{member.point_stats.expected_points}}</td>
-        <td>{{member.point_stats.doing}}</td>
-        <td>{{member.point_stats.in_qa}}</td>
-        <td>{{member.point_stats.qa_passed}}</td>
-        <td>{{member.point_stats.accepted}}</td>
-        <td>{{member.completed_percentage}}</td>
-        <td>{{member.incompleted_percentage}}</td>
+        <td>{{member.fullName}}</td>
+        <td>{{member.pointStats.expected_points}}</td>
+        <td>{{member.pointStats.doing}}</td>
+        <td>{{member.pointStats.in_qa}}</td>
+        <td>{{member.pointStats.qa_passed}}</td>
+        <td>{{member.pointStats.accepted}}</td>
+        <td>{{member.completedPercentage}}</td>
+        <td>{{member.incompletePercentage}}</td>
       </tr>
     {{/each}}
   </tbody>
