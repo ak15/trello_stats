@@ -1,17 +1,17 @@
-import DS from 'ember-data';
-
 export default DS.Model.extend({
-  user_name: DS.attr('string'),
-  full_name: DS.attr('string'),
-  point_stats: DS.attr(),
-  completed_percentage: Ember.computed('point_stats.expected_points',
-    'point_stats.accepted', function() {
-    let acccepted = this.get('point_stats.accepted');
-    let expected_points = this.get('point_stats.expected_points');
+  userName: DS.attr('string'),
+  fullName: DS.attr('string'),
+  pointStats: DS.attr(),
+  completedPercentage: Ember.computed('pointStats.expected_points',
+    'pointStats.accepted', function() {
+    let acccepted = this.get('pointStats.accepted');
+    let expected_points = this.get('pointStats.expected_points');
     if (acccepted == 0) { return 0 }
     return Math.round((acccepted * 100) / expected_points)
   }),
-  incompleted_percentage: Ember.computed('completed_percentage', function() {
-    return (100 - this.get('completed_percentage'))
+  incompletePercentage: Ember.computed('completedPercentage', function() {
+    return (100 - this.get('completedPercentage'))
   }),
+  cardMembers: DS.hasMany('cardMembers'),
+  cards: DS.hasMany('cards')
 });
