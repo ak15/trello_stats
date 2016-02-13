@@ -1,3 +1,5 @@
+import DS from 'ember-data';
+
 export default DS.Model.extend({
   individualsPoint: DS.attr('number'),
   member: DS.belongsTo('member'),
