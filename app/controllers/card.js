@@ -37,6 +37,12 @@ export default Ember.Controller.extend({
         let queryParam = this.getQueryParamFromFilterName(filterName);
         this.set(queryParam, selectedFilterIdInGroups[filterName]);
       });
+    },
+    handlePointsChange: function(cardMember, updatedPoint) {
+      if (cardMember.get('individualsPoint') != updatedPoint) {
+        cardMember.set('individualsPoint', updatedPoint);
+        cardMember.save();
+      }
     }
   }
 });

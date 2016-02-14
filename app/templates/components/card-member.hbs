@@ -1,0 +1,8 @@
+<div class='card-member'>{{cardMember.member.fullName}}
+  {{#if hasPoints}}
+    , Points :
+    <input class='points-field numeric' type='text'
+      value={{cardMember.individualsPoint}}
+      onblur={{action 'handlePointsChange' value='target.value'}} />
+  {{/if}}
+</div>
