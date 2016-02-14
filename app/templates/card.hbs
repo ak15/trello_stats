@@ -1,11 +1,11 @@
-<input value={{search}} onkeydown={{action "handleSearchTermChange"}}
+<input value={{search}} onkeydown={{action 'handleSearchTermChange'}}
   class='search-box blue-outline-input-box'
   placeholder="Search card by name">
 {{multi-select-filter filters=filters filterChanged=(action 'handleFilterChange')
   selectedFilters=selectedFilters}}
 <br>
 {{#each model as |card|}}
-  {{card-component card=card}}
+  {{card-component card=card handlePointsChange=(action 'handlePointsChange')}}
 {{/each}}
 
 {{#if paginationRequired}}

@@ -3,13 +3,8 @@
   {{#if card.cardMembers}}
     <div><strong>Added members:</strong></div>
     {{#each card.cardMembers as |cardMember|}}
-      <div class='card-member'>{{cardMember.member.fullName}}
-        {{#if card.points}}
-          , Points :
-          <input class='points-field numeric' type='text'
-            value={{cardMember.individualsPoint}} />
-        {{/if}}
-      </div>
+      {{card-member cardMember=cardMember hasPoints=card.points
+        handlePointsChange=(action 'handlePointsChange')}}
     {{/each}}
   {{/if}}
 </div>
