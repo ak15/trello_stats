@@ -1,1 +1,23 @@
-{{outlet}}
+<header>
+  <div class='loader'>
+    <div class='loader--dot'></div>
+    <div class='loader--dot'></div>
+    <div class='loader--dot'></div>
+    <div class='loader--dot'></div>
+    <div class='loader--dot'></div>
+    <div class='loader--dot'></div>
+  </div>
+  <div class="nav">
+    <ul>
+      <li>{{#link-to 'home'}}Home{{/link-to}}</li>
+      <li>{{#link-to 'card'}}Cards{{/link-to}}</li>
+      <li><a href="#">Members</a></li>
+      <li><a href="#">Holidays</a></li>
+      <li><a href="#">Leave</a></li>
+    </ul>
+  </div>
+</header>
+
+<div id='main-container'>
+  {{outlet}}
+</div>

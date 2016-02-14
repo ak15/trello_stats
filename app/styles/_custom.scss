@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.blue-outline-input-box {
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+.sol-inner-container {
+  height: 38px;
+  input[type=text] {
+    padding: 2px 10px;
+  }
+}
+
+input[type=text]:focus,
+  .sol-current-selection .sol-inner-container .sol-input-container input[type=text]:focus {
+  outline: none !important;
+}
+
+#filter-select-list {
+  display: inline-block;
+}
+
+.search-box {
+  color: #555;
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 8px 10px;
+  width: 100%;
+}
+
+#main-container {
+  width: 1280px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card-container {
+  border-bottom: 1px solid #999;
+  padding: 10px;
+}
+
+.card-name {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card-member {
+  margin-bottom: 10px;
+}
+
+.points-field {
+  width: 40px;
+  padding: 3px;
+}
