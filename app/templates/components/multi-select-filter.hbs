@@ -1,0 +1,11 @@
+<select id="filter-select-list" name="character" multiple="multiple">
+  {{#each-in filters as |name options|}}
+    <optgroup label={{name}}>
+      {{#each options as |option|}}
+        <option val={{option.name}} data-val={{option.id}}
+          selected={{filter-selected selectedFilters name option.id }}>
+            {{option.name}}</option>
+      {{/each}}
+    </optgroup>
+  {{/each-in}}
+</select>
