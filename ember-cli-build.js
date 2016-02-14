@@ -20,6 +20,7 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
   app.import('vendor/trello_client.js');
-  app.import('vendor/sol.js')
+  app.import('vendor/sol.js');
+  app.import('vendor/numeric.js')
   return app.toTree();
 };
