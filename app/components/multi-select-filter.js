@@ -18,8 +18,6 @@ export default Ember.Component.extend({
           return $(this).data('val');
         }).get();
       });
-      // debugger
-      console.log(selectedFilterIdInGroups);
       self.sendAction('filterChanged', selectedFilterIdInGroups);
     });
   }
