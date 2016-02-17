@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   didRender:  function() {
-    this.$('.numeric').ForceNumericOnly();
+    this.$('.points-field').ForceNumericOnly();
   },
   actions: {
     handlePointsChange: function(cardMember, updatedPoint) {

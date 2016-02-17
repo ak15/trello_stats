@@ -1,0 +1,22 @@
+<table class='themed-table'>
+  <thead>
+    <tr>
+      <th>Full name</th>
+      <th>User name</th>
+      <th>Expected points</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each members as |member|}}
+      <tr>
+        <td>{{member.fullName}}</td>
+        <td>{{member.userName}}</td>
+        <td>
+          {{input value=member.expectedPoints
+            focusOut=(action 'handleExpectedPointChange' member)
+            class='points-field'}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
