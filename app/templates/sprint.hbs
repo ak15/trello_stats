@@ -1,0 +1,24 @@
+{{#each model.errors as |error|}}
+  <div class="error">
+    {{error.title}}
+  </div>
+{{/each}}
+
+<table class='themed-table'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start date</th>
+      <th>End date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |sprint|}}
+      <tr>
+        <td>{{sprint.name}}</td>
+        <td>{{input type='date' value=sprint.startDate focusOut=(action 'handleDateChange' sprint)}}</td>
+        <td>{{input type='date' value=sprint.endDate focusOut=(action 'handleDateChange' sprint)}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
