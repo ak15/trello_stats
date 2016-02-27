@@ -5,4 +5,4 @@ export default DS.Model.extend({
   points: DS.attr('number'),
   members: DS.hasMany('members'),
   cardMembers: DS.hasMany('cardMembers', { inverse: 'card' })
-})
+});

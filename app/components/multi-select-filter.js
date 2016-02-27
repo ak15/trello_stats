@@ -1,16 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  didRender: function() {
-    let self = this;
+  didInsertElement() {
     this.$('#filter-select-list').searchableOptionList({
       maxHeight: '300px',
       texts: {
         searchplaceholder: 'Filter by list, sprint and members'
       }
     });
-    this.$('#filter-select-list').change(function() {
-      let optgroups = $('#filter-select-list').find('optgroup');
+  },
+  actions: {
+    handleFilterSelection(e) {
+      let optgroups = this.$('#filter-select-list').find('optgroup');
       let selectedFilterIdInGroups = {};
       optgroups.each(function() {
         let groupName = $(this).attr('label');
@@ -18,7 +19,7 @@ export default Ember.Component.extend({
           return $(this).data('val');
         }).get();
       });
-      self.sendAction('filterChanged', selectedFilterIdInGroups);
-    });
+      this.sendAction('filterChanged', selectedFilterIdInGroups);
+    }
   }
 });

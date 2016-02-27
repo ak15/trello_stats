@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   actions: {
-    handlePointsChange: function(updatedPoint) {
+    handlePointsChange(updatedPoint) {
       this.sendAction('handlePointsChange', this.get('cardMember'), updatedPoint);
     }
   }
