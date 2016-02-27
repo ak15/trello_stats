@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  didRender:  function() {
+  didRender() {
     this.$('.points-field').ForceNumericOnly();
   },
   actions: {
-    handlePointsChange: function(cardMember, updatedPoint) {
+    handlePointsChange(cardMember, updatedPoint) {
       this.sendAction('handlePointsChange', cardMember, updatedPoint);
     }
   }

@@ -1,4 +1,6 @@
-<select id="filter-select-list" name="character" multiple="multiple">
+<select id="filter-select-list" name="character"
+  multiple="multiple"
+  onchange={{action 'handleFilterSelection'}}>
   {{#each-in filters as |name options|}}
     <optgroup label={{name}}>
       {{#each options as |option|}}

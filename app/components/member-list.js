@@ -1,10 +1,7 @@
+import Ember from 'ember';
+
 export default Ember.Component.extend({
-  didRender: function() {
+  didRender() {
     this.$('.points-field').ForceNumericOnly();
-  },
-  actions: {
-    handleExpectedPointChange: function(member) {
-      this.sendAction('handleExpectedPointChange', member);
-    }
   }
 });

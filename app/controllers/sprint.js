@@ -2,10 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   actions: {
-    handleDateChange: function(sprint) {
+    handleDateChange(sprint) {
       if (sprint.get('hasDirtyAttributes')) {
         sprint.save().catch((response) => {
-          this.get('errorHandler').showErrors(response)
+          this.get('errorHandler').showErrors(response);
         });
       }
     }

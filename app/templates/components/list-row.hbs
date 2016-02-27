@@ -1,0 +1,9 @@
+<td>{{list.name}}</td>
+<td>
+  <select onchange={{action 'handleCategoryChange' value="target.value"}}>
+    <option value=''>Select</option>
+    {{#each-in categories as |category id|}}
+      <option value={{id}} selected={{eq list.category id}}>{{category}}</option>
+    {{/each-in}}
+  </select>
+</td>

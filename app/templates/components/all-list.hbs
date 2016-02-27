@@ -1,0 +1,15 @@
+<table class='themed-table'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each lists as |list|}}
+      {{list-row list=list
+        categories=categories
+        handleCategoryChange=(action attrs.handleCategoryChange)}}
+    {{/each}}
+  </tbody>
+</table>

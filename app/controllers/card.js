@@ -8,9 +8,9 @@ export default Ember.Controller.extend({
   filterNames: ['lists', 'sprints', 'members'],
   cardPerPage: 20,
   selectedFilters: Ember.computed('model', function() {
-    let selectedFiltersFromParams = {}
+    let selectedFiltersFromParams = {};
     this.filterNames.forEach((filterName) => {
-      selectedFiltersFromParams[filterName] = this.get(this.getQueryParamFromFilterName(filterName))
+      selectedFiltersFromParams[filterName] = this.get(this.getQueryParamFromFilterName(filterName));
     });
     return selectedFiltersFromParams;
   }),
@@ -18,27 +18,27 @@ export default Ember.Controller.extend({
     return this.get('model').get('length') >= this.get('cardPerPage');
   }),
   filters: Ember.computed('model.meta.filters', function() {
-    return this.get('model').get('meta').filters
+    return this.get('model').get('meta').filters;
   }),
-  getFilterNameFromQueryParam: function(queryParam) {
+  getFilterNameFromQueryParam(queryParam) {
     return Ember.String.pluralize(queryParam.replace('_ids'));
   },
-  getQueryParamFromFilterName: function(filterName) {
+  getQueryParamFromFilterName(filterName) {
     return `${Ember.String.singularize(filterName)}_ids`;
   },
   actions: {
-    handleSearchTermChange: function(e) {
+    handleSearchTermChange(e) {
       if (e.keyCode == 13) {
         this.set('search', e.target.value);
       }
     },
-    handleFilterChange: function(selectedFilterIdInGroups) {
+    handleFilterChange(selectedFilterIdInGroups) {
       Object.keys(selectedFilterIdInGroups).forEach((filterName) => {
         let queryParam = this.getQueryParamFromFilterName(filterName);
         this.set(queryParam, selectedFilterIdInGroups[filterName]);
       });
     },
-    handlePointsChange: function(cardMember, updatedPoint) {
+    handlePointsChange(cardMember, updatedPoint) {
       if (cardMember.get('individualsPoint') != updatedPoint) {
         cardMember.set('individualsPoint', updatedPoint);
         cardMember.save();

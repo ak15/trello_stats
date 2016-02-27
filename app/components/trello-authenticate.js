@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   actions: {
-    authenticate: function() {
+    authenticate() {
       Trello.authorize({
         type: "popup",
         name: "Trello stats",
