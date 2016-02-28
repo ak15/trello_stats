@@ -1,0 +1,7 @@
+.inline-block {
+  display: inline-block;
+}
+
+.inline-block-middle {
+  @include inline-block-middle;
+}
