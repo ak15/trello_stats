@@ -15,14 +15,14 @@ export default Ember.Service.extend({
       "client"      :  localStorage.getItem("client"),
       "expiry"      :  localStorage.getItem("expiry"),
       "uid"         :  localStorage.getItem("uid")
-    }
+    };
   },
   logout() {
     localStorage.removeItem("access-token");
     localStorage.removeItem("client");
     localStorage.removeItem("expiry");
     localStorage.removeItem("uid");
-    localStorage.removeItem('trello_token')
+    localStorage.removeItem('trello_token');
   },
   // Check https://github.com/funkensturm/ember-local-storage.
   isAuthenticated: Ember.computed(function() {
