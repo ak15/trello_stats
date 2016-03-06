@@ -3,6 +3,7 @@ import DS from 'ember-data';
 import ENV from "../config/environment";
 
 export default DS.JSONAPIAdapter.extend({
+  authentication: Ember.inject.service(),
   host: ENV.APP.HOST,
   namespace: ENV.APP.NAMESPACE,
 
@@ -23,5 +24,9 @@ export default DS.JSONAPIAdapter.extend({
       url += '?' + Ember.$.param(query);
     }
     return url;
-  }
+  },
+
+  headers: Ember.computed(function(){
+    return this.get('authentication').getHeaders();
+  }).volatile()
 });

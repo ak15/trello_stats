@@ -21,6 +21,7 @@ module.exports = function(defaults) {
 
   app.import('vendor/trello_client.js');
   app.import('vendor/sol.js');
-  app.import('vendor/numeric.js')
+  app.import('vendor/numeric.js');
+  app.import('vendor/jquery.notify.min.js')
   return app.toTree();
 };

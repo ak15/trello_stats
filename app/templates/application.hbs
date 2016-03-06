@@ -20,6 +20,11 @@
   </div>
 </header>
 
-<div id='main-container'>
+<div id="main-container">
   {{outlet}}
 </div>
+
+<a id="logout-btn" href="javascript:void(0)" onClick={{action "logout"}}
+  class={{unless isAuthenticated "hide"}}>
+  <div></div>Logout
+</a>
