@@ -5,3 +5,11 @@
 .inline-block-middle {
   @include inline-block-middle;
 }
+
+.hide {
+  display: none !important;
+}
+
+.block {
+  display: block;
+}

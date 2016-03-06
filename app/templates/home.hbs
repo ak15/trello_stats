@@ -1,12 +1,10 @@
-{{! {{trello-authenticate trelloAuthSuccess=(action "sendTrelloTokenToServer") }}
-
 {{pull-button data='all data'
   pullSucessfullMessage='Data pulling scheduled. Please refresh after 2 min'
   handleDataPulling=(action 'pullAllData')}}
 <table class='themed-table'>
   <thead>
     <tr>
-      <th>Member Name</th>
+      <th>Name</th>
       <th>Expected Points</th>
       <th>In doing</th>
       <th>In Q/A</th>

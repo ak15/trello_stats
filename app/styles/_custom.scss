@@ -28,6 +28,10 @@ input[type=text]:focus,
   display: inline-block;
 }
 
+.notify {
+  z-index: 10001;
+}
+
 .search-box {
   color: #555;
   border-radius: 5px;
@@ -71,7 +75,7 @@ input[type=text]:focus,
 
 .pull-button {
   background-color: #cd5c5c;
-  background-image: url('/assets/images/pull.png');
+  background-image: url("/assets/images/pull.png");
   background-repeat: no-repeat;
   background-position: 6px 6px;
   border-radius: 5px;
@@ -83,7 +87,6 @@ input[type=text]:focus,
   text-decoration: none;
   margin-left: 8px;
   @include inline-block-middle;
-
 }
 
 #pull-status-msg {
@@ -94,4 +97,49 @@ input[type=text]:focus,
   right: 0px;
   color: white;
   display: none;
+}
+
+#overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+}
+
+#login-box {
+  position: relative;
+  z-index: 10001;
+}
+
+#login-via-trello-btn {
+  background-color: #3A99AF;
+  color: #fff;
+  font-size: 24px;
+  padding: 20px 10px;
+  text-align: center;
+  width: 400px;
+  cursor: pointer;
+  margin: 250px auto;
+  border-radius: 10px;
+}
+
+#logout-btn {
+  background-color: #cd5c5c;
+  background-repeat: no-repeat;
+  background-image: url("/assets/images/shutdown.png");
+  background-position: 6px 16px;
+  border-radius: 0px 5px 0px 0px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 16px 26px 16px 38px;
+  text-align: center;
+  text-decoration: none;
+  @include inline-block-middle;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
 }

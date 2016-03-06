@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('member');
   this.route('sprint');
   this.route('list');
+  this.route('login');
 });
 
 export default Router;
