@@ -1,6 +1,12 @@
 {{pull-button data='all data'
   pullSucessfullMessage='Data pulling scheduled. Please refresh after 2 min'
   handleDataPulling=(action 'pullAllData')}}
+
+<div id='stats-details'>
+  <div id='sprint-name'>Sprint name: {{get (get model 'meta') 'current_sprint_name'}}</div>
+  <div id='last-sync-time'>Last synced {{lastSyncedTime}}</div>
+</div>
+
 <table class='themed-table'>
   <thead>
     <tr>
@@ -11,7 +17,7 @@
       <th>Q/A passed</th>
       <th>Accepted</th>
       <th>Complete Percentage</th>
-      <th>InComplete Percentage</th>
+      <th>Incomplete Percentage</th>
     </tr>
   </thead>
   <tbody>

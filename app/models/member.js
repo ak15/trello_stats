@@ -18,6 +18,7 @@ export default DS.Model.extend({
     return Math.round((acccepted * 100) / expected_points);
   }),
   incompletePercentage: Ember.computed('completedPercentage', function() {
-    return (100 - this.get('completedPercentage'))
+    let completedPercentage = this.get('completedPercentage');
+    return (completedPercentage >= 100 ? 0 : (100 - completedPercentage))
   })
 });
