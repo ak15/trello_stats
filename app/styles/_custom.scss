@@ -143,3 +143,18 @@ input[type=text]:focus,
   bottom: 0px;
   left: 0px;
 }
+
+#sprint-name, #last-sync-time {
+  background-color: #508690; /* #2FB9D2; */
+  padding: 10px 17px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+#sprint-name {
+  display: inline-block;
+}
+
+#last-sync-time {
+  float: right;
+}
