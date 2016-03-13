@@ -42,7 +42,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.HOST = 'https://trellostatsserver.herokuapp.com'
   }
 
   return ENV;
