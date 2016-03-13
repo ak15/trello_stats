@@ -26,7 +26,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.APP.HOST = 'http://localhost:3000'
+    ENV.APP.HOST = 'https://trellostatsserver.herokuapp.com'
+    // ENV.APP.HOST = 'http://localhost:3000'
   }
 
   if (environment === 'test') {
@@ -42,7 +43,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.HOST = 'https://trellostatsserver.herokuapp.com'
   }
 
   return ENV;

@@ -1,0 +1,20 @@
+<table class='themed-table'>
+  <thead>
+    <tr>
+      <th>Member name</th>
+      <th>Date</th>
+      <th>Created by</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |leave|}}
+      <td>{{leave.member.fullName}}</td>
+      <td>{{leave.date}}</td>
+      <td>{{leave.creator.fullName}}</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    {{/each}}
+  </tbody>
+</table>

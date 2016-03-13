@@ -3,29 +3,31 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
+  localStorage: Ember.inject.service(),
   setHeaders(data) {
-    localStorage.setItem("access-token", data["access-token"]);
-    localStorage.setItem("client", data.client);
-    localStorage.setItem("expiry", data.expiry);
-    localStorage.setItem("uid", data.uid);
+    this.get('localStorage').set('access-token', data['access-token']);
+    this.get('localStorage').set('client', data.client);
+    this.get('localStorage').set('expiry', data.expiry);
+    this.get('localStorage').set('uid', data.uid);
+    this.get('localStorage').set('user-role', data['user-role']);
   },
   getHeaders() {
     return {
-      "access-token":  localStorage.getItem("access-token"),
-      "client"      :  localStorage.getItem("client"),
-      "expiry"      :  localStorage.getItem("expiry"),
-      "uid"         :  localStorage.getItem("uid")
+      'access-token':  this.get('localStorage').get('access-token'),
+      'client'      :  this.get('localStorage').get('client'),
+      'expiry'      :  this.get('localStorage').get('expiry'),
+      'uid'         :  this.get('localStorage').get('uid')
     };
   },
   logout() {
-    localStorage.removeItem("access-token");
-    localStorage.removeItem("client");
-    localStorage.removeItem("expiry");
-    localStorage.removeItem("uid");
-    localStorage.removeItem('trello_token');
+    this.get('localStorage').remove('access-token');
+    this.get('localStorage').remove('client');
+    this.get('localStorage').remove('expiry');
+    this.get('localStorage').remove('uid');
+    this.get('localStorage').remove('trello_token');
+    this.get('localStorage').remove('user-role');
   },
-  // Check https://github.com/funkensturm/ember-local-storage.
-  isAuthenticated: Ember.computed(function() {
-    return localStorage.getItem("access-token") != null;
-  }).volatile(),
+  isAuthenticated: Ember.computed.notEmpty('localStorage.access-token'),
+  role: Ember.computed.alias('localStorage.user-role'),
+  isAdmin: Ember.computed.equal('localStorage.user-role', 'admin')
 });

@@ -11,11 +11,11 @@
     <ul>
       <li>{{#link-to 'home'}}Home{{/link-to}}</li>
       <li>{{#link-to 'card'}}Cards{{/link-to}}</li>
-      <li>{{#link-to 'sprint'}}Sprint{{/link-to}}</li>
-      <li>{{#link-to 'member'}}Members{{/link-to}}</li>
-      <li>{{#link-to 'list'}}List{{/link-to}}</li>
-      <li><a href="#">Holidays</a></li>
-      <li><a href="#">Leave</a></li>
+      <li class={{unless isAdmin 'hide'}}>{{#link-to 'sprint'}}Sprint{{/link-to}}</li>
+      <li class={{unless isAdmin 'hide'}}>{{#link-to 'member'}}Members{{/link-to}}</li>
+      <li class={{unless isAdmin 'hide'}}>{{#link-to 'list'}}List{{/link-to}}</li>
+      <li class={{unless isAdmin 'hide'}}><a href="#">Holidays</a></li>
+      <li>{{#link-to 'leave'}}Leave{{/link-to}}</li>
     </ul>
   </div>
 </header>

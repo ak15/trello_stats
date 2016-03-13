@@ -7,6 +7,10 @@ body {
   padding: 0;
 }
 
+header {
+  min-width: 1024px;
+}
+
 .blue-outline-input-box {
   outline: none;
   border: 1px solid #ccc;
