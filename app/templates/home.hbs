@@ -4,7 +4,9 @@
 
 <div id='stats-details'>
   <div id='sprint-name'>Sprint name: {{get (get model 'meta') 'current_sprint_name'}}</div>
-  <div id='last-sync-time'>Last synced {{lastSyncedTime}}</div>
+  {{#if lastSyncedTime}}
+    <div id='last-sync-time'>Last synced {{lastSyncedTime}}</div>
+  {{/if}}
 </div>
 
 <table class='themed-table'>

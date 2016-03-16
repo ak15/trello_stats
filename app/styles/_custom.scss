@@ -58,7 +58,12 @@ input[type=text]:focus,
 
 .card-name {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #115B8A;
+  line-height: 24px;
+  display: inline-block;
   margin-bottom: 10px;
 }
 
@@ -162,3 +167,34 @@ input[type=text]:focus,
 #last-sync-time {
   float: right;
 }
+
+
+#quick-filters-cotainer {
+  background-color: #F3F6F7;
+  padding: 20px;
+  border-radius: 9px;
+  margin-bottom: 15px;
+
+  .caption {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 7px;
+  }
+
+
+  .quick-filter {
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 0px;
+    padding: 10px 17px;
+    background-color: #fff;
+    outline: 2px solid #215D6B;
+    color: #215D6B
+  }
+
+  .selected {
+    background-color: #508690;
+    color: #fff;
+  }
+}
+

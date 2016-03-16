@@ -23,6 +23,6 @@ module.exports = function(defaults) {
   app.import('vendor/sol.js');
   app.import('vendor/numeric.js');
   app.import('vendor/jquery.notify.min.js');
-  app.import('vendor/moment.js');
+  app.import('bower_components/momentjs/moment.js');
   return app.toTree();
 };

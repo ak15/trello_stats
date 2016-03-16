@@ -4,6 +4,16 @@
 {{multi-select-filter filters=filters filterChanged=(action 'handleFilterChange')
   selectedFilters=selectedFilters}}
 <br>
+{{! Make quick filter dyanamic. Should show quick filter as soon as one added on server }}
+
+<div id='quick-filters-cotainer'>
+  <div class='caption'>Quick filter</div>
+  <div onClick={{action 'applyQuickFilter'}}
+    class='quick-filter' data-quick-filter-name='current_sprint_cards_witout_points'>
+      Current sprint cards without points
+  </div>
+</div>
+
 {{#each model as |card|}}
   {{card-component card=card handlePointsChange=(action 'handlePointsChange')}}
 {{/each}}
