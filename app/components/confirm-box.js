@@ -1,3 +1,6 @@
+// TODO: Need to check whether show property should belong to component or
+// would be better handled by parent component rendering it
+
 import Ember from 'ember';
 
 export default Ember.Component.extend({

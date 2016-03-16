@@ -1,27 +1,33 @@
-<table class='themed-table'>
-  <thead>
-    <tr>
-      <th>Member name</th>
-      <th>Date</th>
-      <th>Created by</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model as |leave|}}
+{{#if leaveIsPresent }}
+  <table class='themed-table'>
+    <thead>
       <tr>
-        <td>{{leave.member.fullName}}</td>
-        <td>{{leave.date}}</td>
-        <td>{{leave.creator.fullName}}</td>
-        <td><a href='javascript:;' onClick={{action 'editLeave' leave}}>Edit</a></td>
-        <td><a href='javascript:;' onclick={{action 'markRecordForDeletion' leave}}
-          class='delete-link'>Delete</a></td>
+        <th>Member name</th>
+        <th>Date</th>
+        <th>Created by</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
-    {{/each}}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {{#each model as |leave|}}
+        <tr>
+          <td>{{leave.member.fullName}}</td>
+          <td>{{leave.date}}</td>
+          <td>{{leave.creator.fullName}}</td>
+          <td><a href='javascript:;' onClick={{action 'editLeave' leave}}>Edit</a></td>
+          <td><a href='javascript:;' onclick={{action 'markRecordForDeletion' leave}}
+            class='delete-link'>Delete</a></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 
-{{confirm-box onYesClick=(action 'deleteLeave')
-  onNoClick=(action 'hideConfirmBox')
-  show=showDeleteLeaveConfirmBox}}
+  {{confirm-box
+    title='Are you sure you want to delete the leave?'
+    onYesClick=(action 'deleteLeave')
+    onNoClick=(action 'hideConfirmBox')
+    show=showDeleteLeaveConfirmBox}}
+{{else}}
+  <h3>No record present</h3>
+{{/if}}
