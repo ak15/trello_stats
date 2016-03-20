@@ -5,7 +5,7 @@ export default Ember.Service.extend({
     autoHide: true,
     icon: '<img src="assets/images/paper_plane.png" />',
     size: "normal",
-    position: {x: "center", y: "bottom"}
+    position: {x: "right", y: "bottom"}
   },
   success: function(msg) {
     this.showMessage(msg, "success");

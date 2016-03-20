@@ -4,6 +4,8 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   cardMembers: DS.hasMany('cardMembers'),
   cards: DS.hasMany('cards'),
+  leaves: DS.hasMany('leaves',{inverse: 'member'}),
+  leavesUpdatedByMember: DS.hasMany('leaves', {inverse: 'lastUpdatedBy'}),
   userName: DS.attr('string'),
   fullName: DS.attr('string'),
   jobProfile: DS.attr('number'),

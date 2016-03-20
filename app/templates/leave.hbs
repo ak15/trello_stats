@@ -1,8 +1,14 @@
+<a class='icon-btn add-btn' href='javascript:void(0)' onclick={{action 'showAddLeaveForm'}}>
+  <div></div>Add Leave {{data}}
+</a>
+<div class='clear'></div>
 {{#if leaveIsPresent }}
   <table class='themed-table'>
     <thead>
       <tr>
-        <th>Member name</th>
+        {{#if isAdminOrTeamLead}}
+          <th>Member name</th>
+        {{/if}}
         <th>Date</th>
         <th>Created by</th>
         <th>Edit</th>
@@ -10,12 +16,14 @@
       </tr>
     </thead>
     <tbody>
-      {{#each model as |leave|}}
+      {{#each leaves as |leave|}}
         <tr>
-          <td>{{leave.member.fullName}}</td>
-          <td>{{leave.date}}</td>
-          <td>{{leave.creator.fullName}}</td>
-          <td><a href='javascript:;' onClick={{action 'editLeave' leave}}>Edit</a></td>
+          {{#if isAdminOrTeamLead}}
+            <td>{{leave.member.fullName}}</td>
+          {{/if}}
+          <td>{{formatDate leave.date}}</td>
+          <td>{{if (eq leave.lastUpdatedBy.id currentMemberId) "You" leave.lastUpdatedBy.fullName}}</td>
+          <td><a href='javascript:;' onClick={{action 'showEditLeaveForm' leave}}>Edit</a></td>
           <td><a href='javascript:;' onclick={{action 'markRecordForDeletion' leave}}
             class='delete-link'>Delete</a></td>
         </tr>
@@ -30,4 +38,14 @@
     show=showDeleteLeaveConfirmBox}}
 {{else}}
   <h3>No record present</h3>
+{{/if}}
+
+{{#if showLeaveForm}}
+  {{leave-form
+    closeLeaveForm=(action 'closeLeaveForm')
+    recordToBeEdited=recordToBeEdited
+    members=members
+    updateLeave=(action 'updateLeave')
+    createLeave=(action 'createLeave')
+    showMemberSelectList=isAdminOrTeamLead}}
 {{/if}}
