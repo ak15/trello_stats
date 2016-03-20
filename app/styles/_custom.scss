@@ -86,31 +86,6 @@ input[type=text]:focus,
   top: 4px;
 }
 
-.icon-btn {
-  background-color: #cd5c5c;
-  background-repeat: no-repeat;
-  border-radius: 5px;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  color: #fff;
-  background-position: 6px 6px;
-  font-weight: bold;
-  padding: 12px 20px 12px 32px;
-  @include inline-block-middle;
-}
-
-.pull-btn {
-  background-image: url("/assets/images/pull.png");;
-}
-
-.add-btn {
-  background-image: url("/assets/images/add.png");
-  background-position: 8px 8px;
-  padding: 12px 20px 12px 40px;
-  float: right;
-}
-
 #pull-status-msg {
   background-color: #67BCCB;
   padding: 10px 20px;
@@ -146,24 +121,6 @@ input[type=text]:focus,
   cursor: pointer;
   margin: 250px auto;
   border-radius: 10px;
-}
-
-#logout-btn {
-  background-color: #cd5c5c;
-  background-repeat: no-repeat;
-  background-image: url("/assets/images/shutdown.png");
-  background-position: 6px 16px;
-  border-radius: 0px 5px 0px 0px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 20px;
-  padding: 16px 26px 16px 38px;
-  text-align: center;
-  text-decoration: none;
-  @include inline-block-middle;
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
 }
 
 #sprint-name, #last-sync-time {

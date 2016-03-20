@@ -9,7 +9,8 @@
     {{#each lists as |list|}}
       {{list-row list=list
         categories=categories
-        handleCategoryChange=(action attrs.handleCategoryChange)}}
+        handleCategoryChange=(action attrs.handleCategoryChange)
+        isEditable=isEditable}}
     {{/each}}
   </tbody>
 </table>

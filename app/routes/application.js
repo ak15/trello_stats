@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   isAuthenticated: Ember.computed.oneWay('authentication.isAuthenticated'),
   isAdmin: Ember.computed.oneWay('authentication.isAdmin'),
+  errorHandler: Ember.inject.service(),
   beforeModel(transition) {
     this.redirectToLoginIsNotAuthenticated(transition);
   },
@@ -12,16 +13,9 @@ export default Ember.Route.extend({
       this.transitionTo('login');
     }
   },
-  redirectToHomePageIfNotAuthorized(transition) {
-    if (this.get("isAuthenticated") && this.get("isAdmin")) {
-      // transition.abort();
-      // this.transitionTo('home');
-    }
-  },
   actions: {
     willTransition(transition) {
       this.redirectToLoginIsNotAuthenticated(transition);
-      this.redirectToHomePageIfNotAuthorized(transition);
     },
     loading(transition) {
       Ember.$('.loader').show();
@@ -30,8 +24,7 @@ export default Ember.Route.extend({
       });
     },
     error(response) {
-      console.log("Something went wrong");
-      console.log(response);
+      this.get('errorHandler').showErrors(response);
     }
   }
 });

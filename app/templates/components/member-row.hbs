@@ -1,16 +1,32 @@
 <td>{{member.fullName}}</td>
-<td>{{member.userName}}</td>
-<td>
-  <select onchange={{action 'handleJobProfileChange' value="target.value"}}>
-    {{#each-in jobProfiles as |jp id|}}
-      <option value={{id}} selected={{eq member.jobProfile id}}>{{jp}}</option>
-    {{/each-in}}
-  </select>
-</td>
-<td>
-  {{#if (eq member.jobProfile jobProfiles.developer)}}
-    {{input value=member.expectedPoints
-      focusOut=(action attrs.handleRecordChange member)
-      class='points-field'}}
+{{#if isEditable}}
+  <td>
+    <select onchange={{action 'handleJobProfileChange' value="target.value"}}>
+      {{#each-in jobProfiles as |jp id|}}
+        <option value={{id}} selected={{eq member.jobProfile id}}>{{jp}}</option>
+      {{/each-in}}
+    </select>
+  </td>
+  {{#if canChangeRole}}
+    <td>
+      <select onchange={{action 'handleRoleChange' value="target.value"}}>
+        {{#each-in roles as |role id|}}
+          <option value={{id}} selected={{eq member.role id}}>{{role}}</option>
+        {{/each-in}}
+      </select>
+    </td>
+  {{else}}
+    <td>{{selectedRole}}</td>
   {{/if}}
-</td>
+  <td>
+    {{#if (eq member.jobProfile jobProfiles.developer)}}
+      {{input value=member.expectedPoints
+        focusOut=(action attrs.handleRecordChange member)
+        class='points-field'}}
+    {{/if}}
+  </td>
+{{else}}
+  <td>{{selectedJobProfile}}</td>
+  <td>{{selectedRole}}</td>
+  <td>{{displayValue member.expectedPoints}}</td>
+{{/if}}

@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  isAdminOrTeamLead: Ember.computed.bool('authentication.isAdminOrTeamLead'),
   categories: Ember.computed('model.meta.categories', function() {
     return this.get('model').get('meta').categories;
   }),

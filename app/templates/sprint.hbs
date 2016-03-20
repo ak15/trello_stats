@@ -10,8 +10,13 @@
     {{#each model as |sprint|}}
       <tr>
         <td>{{sprint.name}}</td>
-        <td>{{input type='date' value=sprint.startDate focusOut=(action 'handleDateChange' sprint)}}</td>
-        <td>{{input type='date' value=sprint.endDate focusOut=(action 'handleDateChange' sprint)}}</td>
+        {{#if isAdminOrTeamLead}}
+          <td>{{input type='date' value=sprint.startDate focusOut=(action 'handleDateChange' sprint)}}</td>
+          <td>{{input type='date' value=sprint.endDate focusOut=(action 'handleDateChange' sprint)}}</td>
+        {{else}}
+          <td>{{displayValue sprint.startDate}}</td>
+          <td>{{displayValue sprint.endDate}}</td>
+        {{/if}}
       </tr>
     {{/each}}
   </tbody>
