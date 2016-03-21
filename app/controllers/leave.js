@@ -2,12 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   isAdminOrTeamLead: Ember.computed.bool('authentication.isAdminOrTeamLead'),
-  leaveIsPresent: Ember.computed.notEmpty('model'),
-  members: Ember.computed(function() {
-    return this.store.peekAll('member');
-  }),
-  leaves: Ember.computed('model.@each.date', function() {
-    return this.get('model').toArray().sort(function(itema, itemb) {
+  leaveIsPresent: Ember.computed.notEmpty('leaves'),
+  sortedLeaves: Ember.computed('leaves.@each.date', function() {
+    return this.get('leaves').toArray().sort(function(itema, itemb) {
       return moment(itemb.get('date')).isAfter(itema.get('date'));
     });
   }),

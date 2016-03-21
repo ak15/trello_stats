@@ -1,13 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  ajax: Ember.inject.service(),
-  beforeModel() {
-    return this.get('ajax').request('/members/leaves').then((response) => {
-      this.store.pushPayload(response);
+  model() {
+    return Ember.RSVP.hash({
+      leaves: this.store.findAll('leave'),
+      members: this.store.findAll('member')
     });
   },
-  model() {
-    return this.store.peekAll('leave');
+  setupController(controller, models) {
+    controller.set('leaves', models.leaves);
+    controller.set('members', models.members);
   }
 })

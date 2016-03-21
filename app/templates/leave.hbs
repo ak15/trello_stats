@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each leaves as |leave|}}
+      {{#each sortedLeaves as |leave|}}
         <tr>
           {{#if isAdminOrTeamLead}}
             <td>{{leave.member.fullName}}</td>
