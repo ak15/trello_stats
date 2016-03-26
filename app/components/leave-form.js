@@ -20,8 +20,8 @@ export default Ember.Component.extend({
       this.attrs.closeLeaveForm();
     },
     createOrUpdateLeave() {
-      this.set('showLoader', true)
-      let payload = {memberId: this.get('memberId'), date: this.get('date')}
+      this.set('showLoader', true);
+      let payload = {memberId: this.get('memberId'), date: this.get('date')};
       if (this.get('isEditForm')) {
         this.attrs.updateLeave(this.get('recordToBeEdited').id, payload)
           .then(this.afterSave.bind(this));

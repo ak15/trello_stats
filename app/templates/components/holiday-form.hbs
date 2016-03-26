@@ -1,0 +1,23 @@
+{{#modal-dialog
+  close='closeHolidayForm'
+  translucentOverlay=true
+  targetAttachment='center'}}
+
+  <div class='custom-modal-container'>
+    <form {{action 'createOrUpdateHoliday' on='submit'}} class='form'>
+      <div class='form-control'>
+        <label>Name</label>
+        {{input type='text' value=name required='required'}}
+      </div>
+      <div class='form-control'>
+        <label>Date</label>
+        {{input type='date' value=date required='required'}}
+      </div>
+      <button type='submit'>{{if isEditForm "Update" "Create"}}</button>
+      {{#if showLoader}}
+        {{bar-loader}}
+      {{/if}}
+    </form>
+  </div>
+
+{{/modal-dialog}}

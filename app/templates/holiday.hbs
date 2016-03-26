@@ -1,1 +1,50 @@
-<h2>This feature will be added soon</h2>
+{{#if isAdmin}}
+  <a class='icon-btn add-btn' href='javascript:void(0)' onclick={{action 'showAddHolidayForm'}}>
+    <div>Add Holiday</div>
+  </a>
+  <div class='clear'></div>
+{{/if}}
+
+{{#if holidayIsPresent}}
+  <table class='themed-table'>
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>Date</th>
+        {{#if isAdmin}}
+          <th>Edit</th>
+          <th>Delete</th>
+        {{/if}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each sortedHolidays as |holiday|}}
+        <tr>
+          <td>{{holiday.name}}</td>
+          <td>{{formatDate holiday.date}}</td>
+          {{#if isAdmin}}
+            <td><a href='javascript:;' onClick={{action 'showEditHolidayForm' holiday}}>Edit</a></td>
+            <td><a href='javascript:;' onclick={{action 'markRecordForDeletion' holiday}}
+              class='delete-link'>Delete</a></td>
+          {{/if}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  {{confirm-box
+    title='Are you sure you want to delete the holiday?'
+    onYesClick=(action 'deleteHoliday')
+    onNoClick=(action 'hideConfirmBox')
+    show=showDeleteHolidayConfirmBox}}
+{{else}}
+  <h3>No record present</h3>
+{{/if}}
+
+{{#if showHolidayForm}}
+  {{holiday-form
+    closeHolidayForm=(action 'closeHolidayForm')
+    recordToBeEdited=recordToBeEdited
+    updateHoliday=(action 'updateHoliday')
+    createHoliday=(action 'createHoliday')}}
+{{/if}}
