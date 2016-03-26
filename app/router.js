@@ -12,6 +12,8 @@ Router.map(function() {
   this.route('sprint');
   this.route('list');
   this.route('login');
+  this.route('leave');
+  this.route('holiday');
 });
 
 export default Router;

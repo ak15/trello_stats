@@ -9,9 +9,8 @@ export default Ember.Controller.extend({
       this.get('ajax').request(`/authenticate?token=${token}`)
         .then((response) => {
           this.get("notify").success("Logging successful");
-          this.get("authentication").setHeaders(response.meta.auth_headers);
+          this.get("authentication").storeHeaders(response.meta.auth_headers);
           Ember.$('.loader').hide();
-          Ember.$("#logout-btn").removeClass("hide");
           this.transitionToRoute('home');
         })
         .catch((response) => {

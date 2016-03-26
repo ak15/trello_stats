@@ -1,0 +1,31 @@
+{{#modal-dialog
+  close='closeLeaveForm'
+  translucentOverlay=true
+  targetAttachment='center'}}
+
+  <div class='custom-modal-container'>
+    <form {{action 'createOrUpdateLeave' on='submit'}} class='form'>
+      {{#if showMemberSelectList}}
+        <div class='form-control'>
+          <label>Member on leave</label>
+          <select name='memberId' onchange={{action (mut memberId) value='target.value'}}
+            required='required'>
+            {{#each members as |member|}}
+              <option value={{member.id}} selected={{eq member.id memberId}}>
+                {{member.fullName}}</option>
+            {{/each}}
+          </select>
+        </div>
+      {{/if}}
+      <div class='form-control'>
+        <label>Leave date</label>
+        {{input type='date' value=date required='required'}}
+      </div>
+      <button type='submit'>{{if isEditForm "Update" "Create"}}</button>
+      {{#if showLoader}}
+        {{bar-loader}}
+      {{/if}}
+    </form>
+  </div>
+
+{{/modal-dialog}}

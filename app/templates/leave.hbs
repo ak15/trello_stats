@@ -1,0 +1,51 @@
+<a class='icon-btn add-btn' href='javascript:void(0)' onclick={{action 'showAddLeaveForm'}}>
+  <div>Add Leave</div>
+</a>
+<div class='clear'></div>
+{{#if leaveIsPresent}}
+  <table class='themed-table'>
+    <thead>
+      <tr>
+        {{#if isAdminOrTeamLead}}
+          <th>Member name</th>
+        {{/if}}
+        <th>Date</th>
+        <th>Created by</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each sortedLeaves as |leave|}}
+        <tr>
+          {{#if isAdminOrTeamLead}}
+            <td>{{leave.member.fullName}}</td>
+          {{/if}}
+          <td>{{formatDate leave.date}}</td>
+          <td>{{if (eq leave.lastUpdatedBy.id currentMemberId) "You" leave.lastUpdatedBy.fullName}}</td>
+          <td><a href='javascript:;' onClick={{action 'showEditLeaveForm' leave}}>Edit</a></td>
+          <td><a href='javascript:;' onclick={{action 'markRecordForDeletion' leave}}
+            class='delete-link'>Delete</a></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  {{confirm-box
+    title='Are you sure you want to delete the leave?'
+    onYesClick=(action 'deleteLeave')
+    onNoClick=(action 'hideConfirmBox')
+    show=showDeleteLeaveConfirmBox}}
+{{else}}
+  <h3>No record present</h3>
+{{/if}}
+
+{{#if showLeaveForm}}
+  {{leave-form
+    closeLeaveForm=(action 'closeLeaveForm')
+    recordToBeEdited=recordToBeEdited
+    members=members
+    updateLeave=(action 'updateLeave')
+    createLeave=(action 'createLeave')
+    showMemberSelectList=isAdminOrTeamLead}}
+{{/if}}

@@ -4,6 +4,7 @@ export default Ember.Controller.extend({
   ajax: Ember.inject.service(),
   notify: Ember.inject.service(),
   isAuthenticated: Ember.computed.oneWay("authentication.isAuthenticated"),
+  isAdmin: Ember.computed.oneWay("authentication.isAdmin"),
   actions: {
     logout() {
       Ember.$("#loader").show();
@@ -11,7 +12,6 @@ export default Ember.Controller.extend({
         .then(() => {
           this.get("notify").success("Logout successfull");
           this.get("authentication").logout();
-          Ember.$("#logout-btn").addClass("hide");
           this.transitionToRoute("login");
         });
     },

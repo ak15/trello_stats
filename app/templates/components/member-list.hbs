@@ -2,14 +2,19 @@
   <thead>
     <tr>
       <th>Full name</th>
-      <th>User name</th>
       <th>Job profile</th>
+      <th>Role</th>
       <th>Expected points</th>
     </tr>
   </thead>
   <tbody>
     {{#each members as |member|}}
-      {{member-row member=member jobProfiles=jobProfiles
+      {{member-row
+        member=member
+        jobProfiles=jobProfiles
+        roles=roles
+        isEditable=isEditable
+        canChangeRole=canChangeRole
         handleRecordChange=(action attrs.handleRecordChange)}}
     {{/each}}
   </tbody>

@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  isAdminOrTeamLead: Ember.computed.bool('authentication.isAdminOrTeamLead'),
   actions: {
     handleDateChange(sprint) {
       if (sprint.get('hasDirtyAttributes')) {

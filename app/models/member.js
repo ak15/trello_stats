@@ -4,9 +4,11 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   cardMembers: DS.hasMany('cardMembers'),
   cards: DS.hasMany('cards'),
-  userName: DS.attr('string'),
+  leaves: DS.hasMany('leaves',{inverse: 'member'}),
+  leavesUpdatedByMember: DS.hasMany('leaves', {inverse: 'lastUpdatedBy'}),
   fullName: DS.attr('string'),
   jobProfile: DS.attr('number'),
+  role: DS.attr('number'),
   expectedPoints: DS.attr('number'),
   pointStats: DS.attr(),
   completedPercentage: Ember.computed('pointStats.expected_points',

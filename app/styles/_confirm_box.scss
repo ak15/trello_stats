@@ -1,0 +1,24 @@
+.custom-modal-container {
+  padding: 25px;
+
+  .modal-buttons {
+    margin-top: 15px;
+  }
+
+  .yes-button {
+    margin-right: 20px;
+  }
+
+  .no-button {
+    margin-right: 5px;
+  }
+
+  .modal-buttons a {
+    background-color: #58C9E0;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #403B3B;
+    display: inline-block;
+    border-radius: 3px;
+  }
+}

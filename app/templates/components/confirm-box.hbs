@@ -1,0 +1,21 @@
+{{#if show}}
+  {{#modal-dialog
+    close='hideConfirmBox'
+    translucentOverlay=true
+    targetAttachment='center'}}
+
+    <div class='custom-modal-container'>
+      <div>{{title}}</div>
+      <div class='modal-buttons'>
+        <a href='javascript:;' onclick={{action 'onYesClick'}} class='yes-button'>
+          {{yesButtonName}}</a>
+        <a href='javascript:;' onclick={{action 'onNoClick'}} class='no-button'>
+          {{noButtonName}}</a>
+        {{#if showLoader}}
+          {{bar-loader}}
+        {{/if}}
+      </div>
+    </div>
+
+  {{/modal-dialog}}
+{{/if}}

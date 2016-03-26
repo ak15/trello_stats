@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   isAuthenticated: Ember.computed.oneWay('authentication.isAuthenticated'),
+  isAdmin: Ember.computed.oneWay('authentication.isAdmin'),
+  errorHandler: Ember.inject.service(),
   beforeModel(transition) {
     this.redirectToLoginIsNotAuthenticated(transition);
   },
@@ -21,9 +23,8 @@ export default Ember.Route.extend({
         Ember.$('.loader').hide();
       });
     },
-    error(errors) {
-      console.log("Something went wrong");
-      console.log(errors);
+    error(response) {
+      this.get('errorHandler').showErrors(response);
     }
   }
 });
