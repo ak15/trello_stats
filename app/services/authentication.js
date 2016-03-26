@@ -1,4 +1,4 @@
-// TODOD: This will be refactored while implementing authorizations if possible
+// TODOD: Needs refactoring
 
 import Ember from 'ember';
 
